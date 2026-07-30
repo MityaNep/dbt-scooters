@@ -12,5 +12,5 @@
     price/100::decimal(20,2) as price_rub,
     extract(epoch from (finished_at - started_at)) as duration_s,
     finished_at <> started_at and price = 0 as is_free,
-    date(started_at) as date
+    {{ date_in_moscow('started_at') }} as date
 from {{ source("scooters_raw", "trips") }}

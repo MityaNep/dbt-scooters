@@ -45,6 +45,8 @@ models:
     description: "User events without duplicates"
     config:
       materialized: "incremental"
+      strategy: "merge"
+      unique_key: [ "user_id", "timestamp", "type_id" ]
   - name: "trips_concurrency"
     description: "trips concurrency"
     config:
