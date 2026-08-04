@@ -41,6 +41,10 @@ models:
     description: "Trips"
     config:
       materialized: "incremental"
+      post_hook:
+        - "analyze dbt.trips_users"
+        - sql: "vacuum dbt.trips_users"
+          transaction: false
   - name: "events_clean"
     description: "User events without duplicates"
     config:
@@ -63,10 +67,3 @@ models:
     description: "Overall user events statistics"
   - name: "trips_age_group"
     description: "Trip statistic by age group"
-  - name: "revenue_daily"
-    description: "Summary daily revenue"
-    config:
-      materialized: "incremental"
-      strategy: "merge"
-      unique_key: [ "date" ]
-      on_schema_change: "append_new_columns"

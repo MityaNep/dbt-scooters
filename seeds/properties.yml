@@ -1,3 +1,5 @@
+version: 2
+
 seeds:
   - name: "scooters"
     description: "Scooter models info and statistics"

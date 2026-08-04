@@ -34,3 +34,11 @@ models:
     # Config indicated by + and applies to all files under models/example/
     +materialized: table
     +on_schema_change: append_new_columns
+    finance:
+      +schema: "finance"
+      +grants:
+        select: [ "finance" ]
+seeds:
+  dbt_scooters:
+    ops:
+      +schema: "ops"
