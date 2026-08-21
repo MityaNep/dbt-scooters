@@ -32,13 +32,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_scooters:
     # Config indicated by + and applies to all files under models/example/
-    +materialized: table
-    +on_schema_change: append_new_columns
+    +materialized: "table"
+    +on_schema_change: "append_new_columns"
+    +persist_docs:
+      relation: true
+      columns: true
     finance:
       +schema: "finance"
       +grants:
         select: [ "finance" ]
 seeds:
   dbt_scooters:
+    +persist_docs:
+      relation: true
+      columns: true
     ops:
       +schema: "ops"
