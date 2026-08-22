@@ -4,7 +4,8 @@ with trips_by_company as
    	    count(1) cnt
     from {{ref("trips_prep")}} tp
     join {{ref("scooters")}} s on tp.scooter_hw_id = s.hardware_id 
-    group by 1)
+    group by 1
+    )
 select 
     tbc.company,
     c.scooters,
