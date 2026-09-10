@@ -50,3 +50,8 @@ cd dbt_scooters
 ```sql
 create extension postgis schema public;
 ```
+## Каталог данных
+
+Каталог dbt, который автоматически обновляется из ветки `main`:
+
+https://mityanep.github.io/dbt-scooters/
