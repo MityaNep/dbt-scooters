@@ -108,4 +108,9 @@ models:
   - name: "trips_age_group"
     description: "Trip statistic by age group"
   - name: "sex_age_pivot"
-    description: "Trips per age pivoted by sex"
+    description: "Trips per age grouped by sex"
+    columns:
+      - name: "age"
+        description: "Numerical age of user"
+        data_tests:
+          - "dbt_utils.not_constant"

@@ -37,13 +37,14 @@ jobs:
           cp target/manifest.json site/
           cp target/catalog.json site/
 
+      - name: Install dependencies
+        run: |
+          uv sync --locked
+          uv run dbt deps
+
       - name: Commit site for GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: site
 
-      - name: Install dependencies
-        run: |
-          uv sync --locked
-          uv run dbt deps
