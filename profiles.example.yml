@@ -1,8 +1,8 @@
 dbt_scooters:
   outputs:
     dev:
-      dbname: dev_db95
-      host: dpg-daesi91t0dsc73bjglvg-a.frankfurt-postgres.render.com
+      dbname: postgres
+      host: localhost
       pass: "{{ env_var('DBT_ENV_SECRET_PASSWORD') }}"
       port: 5432
       schema: dbt
