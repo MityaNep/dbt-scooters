@@ -1,1 +1,1 @@
-{{trips_age_sex_report(ref('trips_users'), 'monthly')}}
+{{ trips_age_sex_report(ref('trips_users'), 'monthly') }}
