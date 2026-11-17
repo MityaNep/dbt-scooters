@@ -28,8 +28,6 @@ jobs:
           uv run dbt deps
           cp profiles.example.yml profiles.yml
 
-      - name: Build production environment
-        run: uv run dbt build --target prod
 
       - name: Generate Data Catalog
         run: |
