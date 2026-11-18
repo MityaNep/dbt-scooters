@@ -212,3 +212,8 @@ models:
       - unique_key:
           arguments:
             columns: [ "month", "age", "sex" ]
+
+  - name: "events_prep"
+    description: "view events with column date"
+    config:
+      materialized: "view"

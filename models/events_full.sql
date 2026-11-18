@@ -1,7 +1,11 @@
 select
-    ec.user_id,
-    ec.timestamp,
-    ec.type_id,
-    et.type
-from {{ ref("events_clean") }} as ec
-left join {{ ref("event_types") }} as et on et.type_id::smallint = ec.type_id
+    e.user_id,
+    e."timestamp",
+    type_id,
+    et."type",
+    e.updated_at,
+    e."date"
+from
+    {{ ref('events_clean') }} as e
+left join {{ ref('event_types') }} as et
+    using (type_id)
